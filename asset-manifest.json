@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/skill-tracker/static/css/main.ab7136cd.chunk.css",
+    "main.js": "/skill-tracker/static/js/main.a86b3d39.chunk.js",
+    "main.js.map": "/skill-tracker/static/js/main.a86b3d39.chunk.js.map",
+    "runtime-main.js": "/skill-tracker/static/js/runtime-main.e7df287c.js",
+    "runtime-main.js.map": "/skill-tracker/static/js/runtime-main.e7df287c.js.map",
+    "static/js/2.d9d77c9e.chunk.js": "/skill-tracker/static/js/2.d9d77c9e.chunk.js",
+    "static/js/2.d9d77c9e.chunk.js.map": "/skill-tracker/static/js/2.d9d77c9e.chunk.js.map",
+    "static/js/3.5e78e59e.chunk.js": "/skill-tracker/static/js/3.5e78e59e.chunk.js",
+    "static/js/3.5e78e59e.chunk.js.map": "/skill-tracker/static/js/3.5e78e59e.chunk.js.map",
+    "index.html": "/skill-tracker/index.html",
+    "static/css/main.ab7136cd.chunk.css.map": "/skill-tracker/static/css/main.ab7136cd.chunk.css.map",
+    "static/js/2.d9d77c9e.chunk.js.LICENSE.txt": "/skill-tracker/static/js/2.d9d77c9e.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/skill-tracker/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e7df287c.js",
+    "static/js/2.d9d77c9e.chunk.js",
+    "static/css/main.ab7136cd.chunk.css",
+    "static/js/main.a86b3d39.chunk.js"
+  ]
+}
