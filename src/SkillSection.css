@@ -1,0 +1,8 @@
+.skill-section {
+    display:grid;
+    width:30%;
+    height:150px;
+    background-color:rgb(253, 136, 136);
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows:auto;
+}
