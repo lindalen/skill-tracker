@@ -3,6 +3,19 @@
     width:30%;
     height:150px;
     background-color:rgb(253, 136, 136);
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows:auto;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
+
+
+.skill-name {
+    font-size:2em;
+}
+
+.skill-section__item {
+    border: 2px solid black;
+    width:100%;
+    height:100%;
+}
+
+

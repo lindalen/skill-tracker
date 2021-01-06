@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <SkillSection/>
+      <SkillSection skillName="Chess"/>
     </div>
   );
 }
