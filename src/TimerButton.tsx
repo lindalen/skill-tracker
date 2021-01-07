@@ -16,10 +16,8 @@ export const TimerButton: React.FC<TimerButtonProps> = ({makeActiveOpposite, act
 
         function handleClick() {
             if (active) {
-                console.log("Current log url: " + logoUrl);
                 setLogoUrl(playLogo);
             } else {
-                console.log("Current log url: " + logoUrl);
                 setLogoUrl(pauseLogo);
             }
             makeActiveOpposite();

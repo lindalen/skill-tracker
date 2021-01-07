@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { addSyntheticLeadingComment, createIncrementalCompilerHost } from "typescript";
 import "./SkillSection.css";
 import {TimerButton} from "./TimerButton";
 import {Timer} from "./Timer";
