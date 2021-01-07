@@ -1,5 +1,8 @@
 import React, {useState} from "react";
-import "./SkillSection.css"
+import { addSyntheticLeadingComment, createIncrementalCompilerHost } from "typescript";
+import "./SkillSection.css";
+import {TimerButton} from "./TimerButton";
+import {Timer} from "./Timer";
 /**
  * Component Description
  * Data - total time spent on a skill, current timer value, goal time
@@ -16,21 +19,33 @@ import "./SkillSection.css"
 - Timer (setTime?, time)
  */
 
-interface SkillSectionProps {
+type SkillSectionProps = {
     skillName: string;
 }
 
-const SkillSection : React.FC<SkillSectionProps> = ({skillName} : SkillSectionProps) => {
-    const [hasStarted, setHasStarted] = useState(false);
-    const [startTime, setStartTime] = useState(0);
-    const [time, setTime] = useState(0);
-    const [goal, setGoal] = useState(0);
 
+const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
+    const [time, setTime] = useState<number>(0);
+    const [active, setActive] = useState<boolean>(false);
+
+    function increment() {
+        setTime(currentTime => currentTime+1);
+    }
+
+    function changeTimerState() {
+        setActive(c => true);
+    }
+
+    
     return (
-        <div className="skill-section">
+        <div className="section">
+            <p className="title">{skillName}</p>
             
+            <Timer increment={increment} time={time} active={active}/>
+            <p>You have spent {time} seconds on this skill.</p>
         </div>
-    );
+        
+    )
 }
 
 export default SkillSection;
