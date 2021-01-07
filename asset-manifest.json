@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/skill-tracker/static/css/main.4ebf7d67.chunk.css",
-    "main.js": "/skill-tracker/static/js/main.61a457c7.chunk.js",
-    "main.js.map": "/skill-tracker/static/js/main.61a457c7.chunk.js.map",
+    "main.css": "/skill-tracker/static/css/main.fe6b2294.chunk.css",
+    "main.js": "/skill-tracker/static/js/main.d0ca851f.chunk.js",
+    "main.js.map": "/skill-tracker/static/js/main.d0ca851f.chunk.js.map",
     "runtime-main.js": "/skill-tracker/static/js/runtime-main.fd77f307.js",
     "runtime-main.js.map": "/skill-tracker/static/js/runtime-main.fd77f307.js.map",
-    "static/js/2.32541f8c.chunk.js": "/skill-tracker/static/js/2.32541f8c.chunk.js",
-    "static/js/2.32541f8c.chunk.js.map": "/skill-tracker/static/js/2.32541f8c.chunk.js.map",
+    "static/js/2.fb1e4e42.chunk.js": "/skill-tracker/static/js/2.fb1e4e42.chunk.js",
+    "static/js/2.fb1e4e42.chunk.js.map": "/skill-tracker/static/js/2.fb1e4e42.chunk.js.map",
     "index.html": "/skill-tracker/index.html",
-    "static/css/main.4ebf7d67.chunk.css.map": "/skill-tracker/static/css/main.4ebf7d67.chunk.css.map",
-    "static/js/2.32541f8c.chunk.js.LICENSE.txt": "/skill-tracker/static/js/2.32541f8c.chunk.js.LICENSE.txt"
+    "static/css/main.fe6b2294.chunk.css.map": "/skill-tracker/static/css/main.fe6b2294.chunk.css.map",
+    "static/js/2.fb1e4e42.chunk.js.LICENSE.txt": "/skill-tracker/static/js/2.fb1e4e42.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fd77f307.js",
-    "static/js/2.32541f8c.chunk.js",
-    "static/css/main.4ebf7d67.chunk.css",
-    "static/js/main.61a457c7.chunk.js"
+    "static/js/2.fb1e4e42.chunk.js",
+    "static/css/main.fe6b2294.chunk.css",
+    "static/js/main.d0ca851f.chunk.js"
   ]
 }
