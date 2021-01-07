@@ -3,17 +3,23 @@
     width:30%;
     height:150px;
     background-color:rgb(253, 136, 136);
+    grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
 }
 
+.content-grid {
+    display:grid;
+    width:100%;
+    height:150px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
 
 .title {
     font-size:2em;
 }
 
 .cell {
-    border: 2px solid black;
     width:100%;
     height:100%;
 }

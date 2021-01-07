@@ -1,16 +1,16 @@
 import React from 'react'
 
 interface TimerProps {
-    time:number;
+    time:Date;
     active:boolean;
-    increment:()=>void;
+    addSecond:()=>void;
 }
 
-export const Timer: React.FC<TimerProps> = ({time, active, increment}) => {
+export const Timer: React.FC<TimerProps> = ({time, active, addSecond}) => {
         return (
             <div>
-                {active?<div>{time}</div>:<p>Time no here</p>}
-                <button onClick={increment}>+++</button>
+                {active?<div>You have spent {time.getSeconds()} seconds on this skill<button onClick={addSecond}>+++</button></div>:<p></p>}
+                
             </div>
         );
 }

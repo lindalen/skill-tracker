@@ -25,24 +25,30 @@ type SkillSectionProps = {
 
 
 const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
-    const [time, setTime] = useState<number>(0);
+    const [time, setTime] = useState<Date>(new Date());
     const [active, setActive] = useState<boolean>(false);
 
-    function increment() {
-        setTime(currentTime => currentTime+1);
+    function addSecond() {
+        setTime(currentTime => new Date(currentTime.getTime() + 1000));
     }
 
-    function changeTimerState() {
-        setActive(c => true);
+    function makeActiveOpposite() {
+        setActive(c => !c);
     }
 
     
     return (
         <div className="section">
-            <p className="title">{skillName}</p>
-            
-            <Timer increment={increment} time={time} active={active}/>
-            <p>You have spent {time} seconds on this skill.</p>
+            <div className="cell">
+                <div className="content-grid">
+                    <p className="title">{skillName}</p>
+                    <Timer addSecond={addSecond} time={time} active={active}/>
+                </div>
+            </div>
+
+            <div className="cell">
+                <TimerButton makeActiveOpposite={makeActiveOpposite} active={active}/>
+            </div>
         </div>
         
     )

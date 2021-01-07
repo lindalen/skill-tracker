@@ -1,13 +1,30 @@
-import React from 'react'
-import startLogo from "./play.jpg";
-import pauseLogo from "./pause.jpg";
+import React, {useState} from 'react'
+import playLogo from "./play.png";
+import pauseLogo from "./pause.png";
+import "./TimerButton.css";
+import { url } from 'inspector';
 
 interface TimerButtonProps {
-    changeTimerState:() => void;
+    makeActiveOpposite:()=>void;
+    active:boolean;
 }
 
-export const TimerButton: React.FC<TimerButtonProps> = ({changeTimerState}) => {
+
+
+export const TimerButton: React.FC<TimerButtonProps> = ({makeActiveOpposite, active}) => {
+        const [logoUrl, setLogoUrl] = useState(playLogo);
+
+        function handleClick() {
+            if (active) {
+                console.log("Current log url: " + logoUrl);
+                setLogoUrl(playLogo);
+            } else {
+                console.log("Current log url: " + logoUrl);
+                setLogoUrl(pauseLogo);
+            }
+            makeActiveOpposite();
+        }
         return (
-            <button className="timer-button" onClick={changeTimerState}>Hello</button>
+            <button className="timer-button" style={{backgroundImage: "url(" + logoUrl + ")"}} onClick={handleClick}></button>
         );
 }
