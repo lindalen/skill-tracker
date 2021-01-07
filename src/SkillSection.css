@@ -1,4 +1,4 @@
-.skill-section {
+.section {
     display:grid;
     width:30%;
     height:150px;
@@ -8,11 +8,11 @@
 }
 
 
-.skill-name {
+.title {
     font-size:2em;
 }
 
-.skill-section__item {
+.cell {
     border: 2px solid black;
     width:100%;
     height:100%;
