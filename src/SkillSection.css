@@ -4,7 +4,8 @@
     height:150px;
     background-color:rgb(253, 136, 136);
     grid-template-rows: 1fr;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 1fr 5px;
+    grid-gap:20px;
 }
 
 .content-grid {
