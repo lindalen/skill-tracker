@@ -1,15 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 
 interface TimerProps {
     time:Date;
-    active:boolean;
-    addSecond:()=>void;
+    startTime:Date;
 }
 
-export const Timer: React.FC<TimerProps> = ({time, active, addSecond}) => {
+export const Timer: React.FC<TimerProps> = ({time, startTime}) => {
+        const [currentDiff, setCurrentDiff] = useState<number>(getDateDiffInSeconds());
+
+        function getDateDiffInSeconds() {
+            let diff = (time.getTime() - startTime.getTime()) / 1000;
+            return diff;
+        }
+
+        function updateTimeDifference() {
+            setCurrentDiff(getDateDiffInSeconds());
+        }
+
+        useEffect(()=> {
+            updateTimeDifference()
+        }, [time]);
+
         return (
             <div>
-                {active?<div>You have spent {time.getSeconds()} seconds on this skill<button onClick={addSecond}>+++</button></div>:<p></p>}
+                {currentDiff} seconds recorded.
                 
             </div>
         );

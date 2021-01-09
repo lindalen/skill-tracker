@@ -24,7 +24,9 @@ type SkillSectionProps = {
 
 
 const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
-    const [time, setTime] = useState<Date>(new Date());
+    const startDate = new Date(); /* ensures both current time and start time are initially the same */
+    const [startTime, setStartTime] = useState<Date>(startDate);
+    const [time, setTime] = useState<Date>(startDate);
     const [active, setActive] = useState<boolean>(false);
 
     function addSecond() {
@@ -41,12 +43,12 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
             <div className="cell">
                 <div className="content-grid">
                     <p className="title">{skillName}</p>
-                    <Timer addSecond={addSecond} time={time} active={active}/>
+                    <Timer  active={active} time={time} startTime={startTime}/>
                 </div>
             </div>
 
             <div className="cell">
-                <TimerButton makeActiveOpposite={makeActiveOpposite} active={active}/>
+                <TimerButton makeActiveOpposite={makeActiveOpposite} active={active} addSecond={addSecond}/>
             </div>
         </div>
         
