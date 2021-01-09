@@ -43,7 +43,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
             <div className="cell">
                 <div className="content-grid">
                     <p className="title">{skillName}</p>
-                    <Timer  active={active} time={time} startTime={startTime}/>
+                    <Timer time={time} startTime={startTime}/>
                 </div>
             </div>
 
