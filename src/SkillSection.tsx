@@ -36,7 +36,6 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     function makeActiveOpposite() {
         setActive(c => !c);
     }
-
     
     return (
         <div className="section">

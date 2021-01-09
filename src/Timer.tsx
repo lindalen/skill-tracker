@@ -17,9 +17,7 @@ export const Timer: React.FC<TimerProps> = ({time, startTime}) => {
             setCurrentDiff(getDateDiffInSeconds());
         }
 
-        useEffect(()=> {
-            updateTimeDifference()
-        }, [time]);
+        useEffect(updateTimeDifference, [time]);
 
         return (
             <div>
