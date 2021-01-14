@@ -25,9 +25,12 @@ type SkillSectionProps = {
 
 const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     const startDate = new Date(); /* ensures both current time and start time are initially the same */
+    const goalDate = new Date(startDate.getTime() + (25*60*1000));
+
     const [startTime, setStartTime] = useState<Date>(startDate);
     const [time, setTime] = useState<Date>(startDate);
     const [active, setActive] = useState<boolean>(false);
+    const [msToReachGoal, setMsToReachGoal] = useState<number>(Math.abs(goalDate.getTime() - startDate.getTime()));
 
     function addSecond() {
         setTime(currentTime => new Date(currentTime.getTime() + 1000));
@@ -45,7 +48,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
                         <p className="title">{skillName}</p>
                     </div>
                     <div className="cell centered">
-                        <Timer time={time} startTime={startTime}/>
+                        <Timer time={time} startTime={startTime} msToReachGoal={msToReachGoal}/>
                     </div>
                 </div>
             </div>
