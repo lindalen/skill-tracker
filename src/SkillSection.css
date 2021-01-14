@@ -11,7 +11,7 @@
 .content-grid {
     display:grid;
     width:100%;
-    height:150px;
+    height:100%;
     grid-template-columns: 1fr;
     grid-template-rows: 50% 50%;
 }
