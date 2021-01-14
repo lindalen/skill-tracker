@@ -10,8 +10,6 @@ interface TimerButtonProps {
     addSecond:()=>void;
 }
 
-
-
 export const TimerButton: React.FC<TimerButtonProps> = ({makeActiveOpposite, active, addSecond}) => {
         const [logoUrl, setLogoUrl] = useState(playLogo);
         const [timerIntervalID, setTimerintervalID] = useState<any>(0);

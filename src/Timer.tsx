@@ -21,8 +21,7 @@ export const Timer: React.FC<TimerProps> = ({time, startTime}) => {
 
         return (
             <div>
-                {currentDiff} seconds recorded.
-                
+                Time spent: {new Date(currentDiff * 1000).toISOString().substr(11, 8)} 
             </div>
         );
 }
