@@ -13,7 +13,7 @@
     width:100%;
     height:150px;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 50% 50%;
 }
 
 .title {
@@ -23,6 +23,12 @@
 .cell {
     width:100%;
     height:100%;
+}
+
+.centered {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 

@@ -41,8 +41,12 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
         <div className="section">
             <div className="cell">
                 <div className="content-grid">
-                    <p className="title">{skillName}</p>
-                    <Timer time={time} startTime={startTime}/>
+                    <div className="cell">
+                        <p className="title">{skillName}</p>
+                    </div>
+                    <div className="cell centered">
+                        <Timer time={time} startTime={startTime}/>
+                    </div>
                 </div>
             </div>
 
