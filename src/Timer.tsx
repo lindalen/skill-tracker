@@ -21,7 +21,10 @@ export const Timer: React.FC<TimerProps> = ({time, startTime}) => {
 
         return (
             <div>
-                Time spent: {new Date(currentDiff * 1000).toISOString().substr(11, 8)} 
+                Time spent: {
+                // from: https://stackoverflow.com/questions/1322732/convert-seconds-to-hh-mm-ss-with-javascript
+                new Date(currentDiff * 1000).toISOString().substr(11, 8)
+                } 
             </div>
         );
 }
