@@ -1,5 +1,6 @@
 .section {
     display:grid;
+    position:relative; /* necessary for SkillSettings absolute position */
     width:100%;
     height:150px;
     background-color:rgb(253, 136, 136);
