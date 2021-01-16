@@ -3,6 +3,7 @@ import "./SkillSection.css";
 import {TimerButton} from "./TimerButton";
 import {Timer} from "./Timer";
 import {SkillSettings} from "./SkillSettings";
+import {SkillSettingsRevealer} from "./SkillSettingsRevealer";
 /**
  * Component Description
  * Data - total time spent on a skill, current timer value, goal time
@@ -33,7 +34,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     const [active, setActive] = useState<boolean>(false);
     const [msToReachGoal, setMsToReachGoal] = useState<number>(Math.abs(goalDate.getTime() - startDate.getTime()));
 
-    const [showSettings, setShowSettings] = useState<true>(true);
+    const [showSettings, setShowSettings] = useState<boolean>(false);
 
     function addSecond() {
         setTime(currentTime => new Date(currentTime.getTime() + 1000));
@@ -44,7 +45,11 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     }
 
     function handleMouseOver() {
+        setShowSettings(c => !c);
+    }
 
+    function updateSettingsVisibility() {
+        setShowSettings(c => !c);
     }
     
     return (
@@ -63,7 +68,8 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
             <div className="cell">
                 <TimerButton makeActiveOpposite={makeActiveOpposite} active={active} addSecond={addSecond}/>
             </div>
-            <SkillSettings show={showSettings}/>
+            <SkillSettingsRevealer revealFunc={updateSettingsVisibility}/>
+            <SkillSettings show={showSettings}/>       
         </div>
     )
 }
