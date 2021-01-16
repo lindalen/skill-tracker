@@ -4,6 +4,7 @@ import {TimerButton} from "./TimerButton";
 import {Timer} from "./Timer";
 import {SkillSettings} from "./SkillSettings";
 import {SkillSettingsRevealer} from "./SkillSettingsRevealer";
+import { ColorResult } from "react-color";
 /**
  * Component Description
  * Data - total time spent on a skill, current timer value, goal time
@@ -35,6 +36,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     const [msToReachGoal, setMsToReachGoal] = useState<number>(Math.abs(goalDate.getTime() - startDate.getTime()));
 
     const [showSettings, setShowSettings] = useState<boolean>(false);
+    const [bgColor, setBgColor] = useState<ColorResult>({hex: '#333', rgb: {r: 51,g: 51,b: 51,a: 1,},hsl: {h: 0,s: 0,l: .20,a: 1,}});
 
     function addSecond() {
         setTime(currentTime => new Date(currentTime.getTime() + 1000));
@@ -47,9 +49,13 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     function updateSettingsVisibility() {
         setShowSettings(c => !c);
     }
+
+    function updateBackgroundColor(color : ColorResult) {
+        setBgColor(color);
+    }
     
     return (
-        <div className="section">
+        <div className="section" style={{backgroundColor: bgColor.hex}}>
             <div className="cell">
                 <div className="content-grid">
                     <div className="cell">
@@ -65,9 +71,9 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
                 <TimerButton makeActiveOpposite={makeActiveOpposite} active={active} addSecond={addSecond}/>
             </div>
             <SkillSettingsRevealer revealFunc={updateSettingsVisibility} show={showSettings}/>
-            <SkillSettings show={showSettings}/>       
+            <SkillSettings show={showSettings} bgColor={bgColor.hex} handleColorChange={updateBackgroundColor}/>       
         </div>
-    )
+    );
 }
 
 export default SkillSection;
