@@ -9,7 +9,6 @@
 }
 
 .show {
-    display:block;
     animation: fadeInAnimation ease 0.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
@@ -38,3 +37,16 @@
         width: 0px; 
      } 
 } 
+
+.threeByOne {
+    display:grid;
+    width:100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap:10px;
+}
+
+.cell {
+    width:100%;
+    height:100%;
+}
