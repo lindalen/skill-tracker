@@ -10,7 +10,7 @@
 
 .show {
     display:block;
-    animation: fadeInAnimation ease 1s;
+    animation: fadeInAnimation ease 0.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
 }
@@ -25,7 +25,7 @@
 } 
 
 .hide {
-    animation: fadeOutAnimation ease 1s;
+    animation: fadeOutAnimation ease 0.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
 }

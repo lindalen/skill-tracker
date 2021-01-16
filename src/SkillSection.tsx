@@ -68,7 +68,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
             <div className="cell">
                 <TimerButton makeActiveOpposite={makeActiveOpposite} active={active} addSecond={addSecond}/>
             </div>
-            <SkillSettingsRevealer revealFunc={updateSettingsVisibility}/>
+            <SkillSettingsRevealer revealFunc={updateSettingsVisibility} show={showSettings}/>
             <SkillSettings show={showSettings}/>       
         </div>
     )
