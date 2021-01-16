@@ -44,10 +44,6 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
         setActive(c => !c);
     }
 
-    function handleMouseOver() {
-        setShowSettings(c => !c);
-    }
-
     function updateSettingsVisibility() {
         setShowSettings(c => !c);
     }
