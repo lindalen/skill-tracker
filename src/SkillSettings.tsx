@@ -15,7 +15,7 @@ export const SkillSettings: React.FC<SkillSettingsProps> = ({show, bgColor, hand
         const settingsContent = 
             <>
                 Skill: <input type="text" name="skill-name" placeholder="Enter new skillname here"/>
-                Goal: <input className="cell" onChange={handleGoalInput} type="number" name="goal-min" placeholder="minutes"/> minutes.
+                Goal: <input onChange={handleGoalInput} type="number" name="goal-min" placeholder="minutes"/> minutes.
                 Color:
                 <GithubPicker color={bgColor} width="200px" colors={['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB']} onChangeComplete={handleChangeComplete} className="color-picker"/>
             </>

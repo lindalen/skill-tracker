@@ -57,6 +57,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
 
     function updateMinToReachGoal(minutes : number) {
         /* crashes if input has no value */
+        if (isNaN(minutes)) return;
         setMinToReachGoal(minutes);
     }
     
