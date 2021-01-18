@@ -6,20 +6,16 @@ interface SkillSettingsProps {
     show: boolean;
     bgColor: string;
     handleColorChange: (color : ColorResult) => void;
+    handleGoalChange: (minutes : number) => void;
 }
 
-export const SkillSettings: React.FC<SkillSettingsProps> = ({show, bgColor, handleColorChange}) => {
-        const handleChangeComplete = (color: ColorResult, event: React.ChangeEvent<HTMLInputElement>) => handleColorChange(color);
-
+export const SkillSettings: React.FC<SkillSettingsProps> = ({show, bgColor, handleColorChange, handleGoalChange}) => {
+        const handleChangeComplete = (color: ColorResult, e: React.ChangeEvent<HTMLInputElement>) => handleColorChange(color);
+        const handleGoalInput = (e: React.ChangeEvent<HTMLInputElement>) => handleGoalChange(parseInt(e.target.value));
         const settingsContent = 
             <>
                 Skill: <input type="text" name="skill-name" placeholder="Enter new skillname here"/>
-                Goal: 
-                <div className="threeByOne"> 
-                    <input className="cell" type="number" name="goal-hour" placeholder="hours"/>
-                    <input className="cell" type="number" name="goal-min" placeholder="minutes"/>
-                    <input className="cell" type="number" name="goal-sec" placeholder="seconds"/>
-                </div>
+                Goal: <input className="cell" onChange={handleGoalInput} type="number" name="goal-min" placeholder="minutes"/> minutes.
                 Color:
                 <GithubPicker color={bgColor} width="200px" colors={['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB']} onChangeComplete={handleChangeComplete} className="color-picker"/>
             </>

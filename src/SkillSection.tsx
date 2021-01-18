@@ -28,12 +28,13 @@ type SkillSectionProps = {
 
 const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     const startDate = new Date(); /* ensures both current time and start time are initially the same */
-    const goalDate = new Date(startDate.getTime() + (25*60*1000));
 
     const [startTime, setStartTime] = useState<Date>(startDate);
     const [time, setTime] = useState<Date>(startDate);
     const [active, setActive] = useState<boolean>(false);
-    const [msToReachGoal, setMsToReachGoal] = useState<number>(Math.abs(goalDate.getTime() - startDate.getTime()));
+
+    const [minToReachGoal, setMinToReachGoal] = useState<number>(25);
+    /*const [msToReachGoal, setMsToReachGoal] = useState<number>(Math.abs(25*60*1000));*/
 
     const [showSettings, setShowSettings] = useState<boolean>(false);
     const [bgColor, setBgColor] = useState<ColorResult>({hex: '#333', rgb: {r: 51,g: 51,b: 51,a: 1,},hsl: {h: 0,s: 0,l: .20,a: 1,}});
@@ -53,7 +54,13 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     function updateBackgroundColor(color : ColorResult) {
         setBgColor(color);
     }
+
+    function updateMinToReachGoal(minutes : number) {
+        /* crashes if input has no value */
+        setMinToReachGoal(minutes);
+    }
     
+
     return (
         <div className="section" style={{backgroundColor: bgColor.hex}}>
             <div className="cell">
@@ -62,7 +69,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
                         <p className="title">{skillName}</p>
                     </div>
                     <div className="cell centered">
-                        <Timer time={time} startTime={startTime} msToReachGoal={msToReachGoal}/>
+                        <Timer time={time} startTime={startTime} minToReachGoal={minToReachGoal}/>
                     </div>
                 </div>
             </div>
@@ -71,7 +78,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
                 <TimerButton makeActiveOpposite={makeActiveOpposite} active={active} addSecond={addSecond}/>
             </div>
             <SkillSettingsRevealer revealFunc={updateSettingsVisibility} show={showSettings}/>
-            <SkillSettings show={showSettings} bgColor={bgColor.hex} handleColorChange={updateBackgroundColor}/>       
+            <SkillSettings show={showSettings} bgColor={bgColor.hex} handleColorChange={updateBackgroundColor} handleGoalChange={updateMinToReachGoal}/>       
         </div>
     );
 }

@@ -3,10 +3,10 @@ import React, {useEffect, useState} from 'react'
 interface TimerProps {
     time:Date;
     startTime:Date;
-    msToReachGoal: number;
+    minToReachGoal: number;
 }
 
-export const Timer: React.FC<TimerProps> = ({time, startTime, msToReachGoal}) => {
+export const Timer: React.FC<TimerProps> = ({time, startTime, minToReachGoal}) => {
         const [currentDiff, setCurrentDiff] = useState<number>(getDateDiffInSeconds());
 
         function getDateDiffInSeconds() {
@@ -28,7 +28,7 @@ export const Timer: React.FC<TimerProps> = ({time, startTime, msToReachGoal}) =>
                 } 
                 / 
                 {
-                    new Date(msToReachGoal).toISOString().substr(11, 8)
+                    new Date(minToReachGoal * 60 * 1000).toISOString().substr(11, 8)
                 }
             </div>
         );
