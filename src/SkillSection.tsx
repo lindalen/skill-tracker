@@ -5,28 +5,8 @@ import {Timer} from "./Timer";
 import {SkillSettings} from "./SkillSettings";
 import {SkillSettingsRevealer} from "./SkillSettingsRevealer";
 import { ColorResult } from "react-color";
-/**
- * Component Description
- * Data - total time spent on a skill, current timer value, goal time
- * Functionality - start timer, stop timer, display current timer value, display goal value
- * Sub-Components - Timer
- */
 
-/**
- * Planning
- * SkillSection
-- SkillName
-- TimerButton (hasStarted, setHasStarted, startTime, setStartTime) [also needs to swap logo on click]
-- ProgressBar (time, goaltime)
-- Timer (setTime?, time)
- */
-
-type SkillSectionProps = {
-    skillName: string;
-}
-
-
-const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
+const SkillSection: React.FC = () => {
     const startDate = new Date(); /* ensures both current time and start time are initially the same */
 
     const [startTime, setStartTime] = useState<Date>(startDate);
@@ -34,10 +14,10 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     const [active, setActive] = useState<boolean>(false);
 
     const [minToReachGoal, setMinToReachGoal] = useState<number>(25);
-    /*const [msToReachGoal, setMsToReachGoal] = useState<number>(Math.abs(25*60*1000));*/
 
     const [showSettings, setShowSettings] = useState<boolean>(false);
     const [bgColor, setBgColor] = useState<ColorResult>({hex: '#333', rgb: {r: 51,g: 51,b: 51,a: 1,},hsl: {h: 0,s: 0,l: .20,a: 1,}});
+    const [skillName, setSkillName] = useState<string>("Skill Name");
 
     function addSecond() {
         setTime(currentTime => new Date(currentTime.getTime() + 1000));
@@ -56,9 +36,17 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
     }
 
     function updateMinToReachGoal(minutes : number) {
-        /* crashes if input has no value */
         if (isNaN(minutes)) return;
         setMinToReachGoal(minutes);
+    }
+
+    function updateSkillName(name : string) {
+        if (name=="") {
+            setSkillName("Skill Name");
+        } else {
+            setSkillName(name);
+        }
+        
     }
     
 
@@ -79,7 +67,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({skillName}) => {
                 <TimerButton makeActiveOpposite={makeActiveOpposite} active={active} addSecond={addSecond}/>
             </div>
             <SkillSettingsRevealer revealFunc={updateSettingsVisibility} show={showSettings}/>
-            <SkillSettings show={showSettings} bgColor={bgColor.hex} handleColorChange={updateBackgroundColor} handleGoalChange={updateMinToReachGoal}/>       
+            <SkillSettings show={showSettings} bgColor={bgColor.hex} handleColorChange={updateBackgroundColor} handleGoalChange={updateMinToReachGoal} handleNameChange={updateSkillName}/>       
         </div>
     );
 }
